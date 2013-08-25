@@ -7,7 +7,6 @@
 *.perspectivev3
 iTerm.xcodeproj/project.pbxproj
 .gitignore
-build/
 .DS_Store
 iTerm.xcodeproj/*
 *.pbxproj
