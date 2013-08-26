@@ -15,13 +15,13 @@ all: Development
 dev: Development
 prod: Deployment
 debug: Development
-	/Developer/usr/bin/gdb build/Development/iTerm.app/Contents/MacOS/iTerm
+	/Developer/usr/bin/gdb build/Development/iTerm2NB.app/Contents/MacOS/iTerm
 
 TAGS:
 	find . -name "*.[mhMH]" -exec etags -o ./TAGS -a '{}' +
 
 install: | Deployment backup-old-iterm
-	cp -R build/Deployment/iTerm.app $(APPS)
+	cp -R build/Deployment/iTerm2NB.app $(APPS)
 
 Development:
 	echo "Using PATH for build: $(PATH)"
@@ -46,15 +46,15 @@ Nightly: force
 	chmod -R go+rX build/Nightly
 
 run: Development
-	build/Development/iTerm.app/Contents/MacOS/iTerm
+	build/Development/iTerm2NB2NB.app/Contents/MacOS/iTerm
 
 devzip: Development
 	cd build/Development && \
-	zip -r iTerm2-$(NAME).zip iTerm.app
+	zip -r iTerm2-$(NAME).zip iTerm2NB.app
 
 zip: Deployment
 	cd build/Deployment && \
-	zip -r iTerm2-$(NAME).zip iTerm.app
+	zip -r iTerm2-$(NAME).zip iTerm2NB.app
 
 clean:
 	xcodebuild -parallelizeTargets -alltargets clean
@@ -69,7 +69,7 @@ backup-old-iterm:
 	fi
 
 restart:
-	PATH=$(ORIG_PATH) /usr/bin/open /Applications/iTerm.app &
+	PATH=$(ORIG_PATH) /usr/bin/open /Applications/iTerm2NB.app &
 	/bin/kill -TERM $(ITERM_PID)
 
 canary:
